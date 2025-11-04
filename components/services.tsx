@@ -26,7 +26,7 @@ const services = [
 
 export function Services() {
   return (
-    <section id="services" className="py-20 md:py-32 bg-card">
+    <section id="services" className="py-20 md:py-32 bg-secondary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center space-y-4 mb-16">
@@ -41,7 +41,7 @@ export function Services() {
           {services.map((service, index) => {
             const Icon = service.icon
             return (
-              <Card key={index} className="p-8 border border-border hover:border-primary transition hover:shadow-lg">
+              <Card key={index} className="p-8 border border-border bg-background hover:border-primary transition hover:shadow-lg">
                 <div className="space-y-4">
                   <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
                     <Icon className="w-6 h-6 text-primary" />
