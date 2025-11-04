@@ -22,7 +22,6 @@ export function Navigation() {
               className="h-8 w-auto logo-blend-darken"
               priority
             />
-            <span className="font-bold text-lg text-foreground hidden sm:inline">Hope</span>
           </Link>
 
           {/* Desktop Menu */}
