@@ -122,3 +122,10 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Hero overlay utility classes */
+.hero-overlay-right { background: linear-gradient(to right, rgba(88, 96, 221, 0.7), rgba(88, 96, 221, 0.5), transparent); }
+.hero-overlay-vertical { background: linear-gradient(to bottom, rgba(88, 96, 221, 0.4), transparent, rgba(88, 96, 221, 0.3)); }
+
+/* Logo blend utility */
+.logo-blend-darken { mix-blend-mode: darken; }

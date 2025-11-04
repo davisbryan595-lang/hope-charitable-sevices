@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -13,9 +14,14 @@ export function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link href="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-              <span className="text-white font-bold text-lg">H</span>
-            </div>
+            <Image
+              src="https://cdn.builder.io/api/v1/image/assets%2Ff43b39b3050e4088ad38f429ea8c0a4b%2F724f8b38ced94f8b983285dba5410942?format=webp&width=800"
+              alt="Hope Charitable Services Logo"
+              width={120}
+              height={32}
+              className="h-8 w-auto logo-blend-darken"
+              priority
+            />
             <span className="font-bold text-lg text-foreground hidden sm:inline">Hope</span>
           </Link>
 
