@@ -81,7 +81,7 @@ export function Hero() {
             {/* Text Content */}
             <div className="space-y-4 max-w-2xl">
               <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight text-balance">
-                Hope for <span className="text-purple-300">Everyone</span>
+                Hope for <span className="text-secondary">Everyone</span>
               </h1>
               <p className="text-lg md:text-xl text-white/90 leading-relaxed text-balance">
                 At Hope Charitable Services, we believe in the power of compassion. We provide essential services and
@@ -91,7 +91,7 @@ export function Hero() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-purple-600 text-white hover:bg-purple-700 w-fit">
+              <Button size="lg" className="bg-primary text-primary-foreground hover:opacity-90 w-fit">
                 Support Our Mission
               </Button>
               <Button
@@ -106,15 +106,15 @@ export function Hero() {
             {/* Stats */}
             <div className="grid grid-cols-3 gap-4 pt-8 border-t border-white/20 max-w-md">
               <div>
-                <p className="text-2xl md:text-3xl font-bold text-purple-300">15K+</p>
+                <p className="text-2xl md:text-3xl font-bold text-secondary">15K+</p>
                 <p className="text-sm text-white/70">Lives Impacted</p>
               </div>
               <div>
-                <p className="text-2xl md:text-3xl font-bold text-purple-300">8+</p>
+                <p className="text-2xl md:text-3xl font-bold text-secondary">8+</p>
                 <p className="text-sm text-white/70">Years Active</p>
               </div>
               <div>
-                <p className="text-2xl md:text-3xl font-bold text-purple-300">50+</p>
+                <p className="text-2xl md:text-3xl font-bold text-secondary">50+</p>
                 <p className="text-sm text-white/70">Team Members</p>
               </div>
             </div>
