@@ -69,9 +69,19 @@ export function Hero() {
           ))}
         </div>
 
-        {/* Dark Purple Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/70 via-primary/50 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/40 via-transparent to-primary/30" />
+        {/* Tinted Gradient Overlay */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background: "linear-gradient(to right, rgba(88, 96, 221, 0.7), rgba(88, 96, 221, 0.5), transparent)"
+          }}
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background: "linear-gradient(to bottom, rgba(88, 96, 221, 0.4), transparent, rgba(88, 96, 221, 0.3))"
+          }}
+        />
       </div>
 
       {/* Content Overlay */}
