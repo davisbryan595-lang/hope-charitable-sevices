@@ -1,9 +1,9 @@
 import { Navigation } from "@/components/navigation"
 import { Hero } from "@/components/hero"
 import { Services } from "@/components/services"
-import { Impact } from "@/components/impact"
-import { GetInvolved } from "@/components/get-involved"
-import { Testimonials } from "@/components/testimonials"
+import { ThreeFoldApproach } from "@/components/three-fold-approach"
+import { SanctuaryOfHope } from "@/components/sanctuary-of-hope"
+import { ContactCard } from "@/components/contact-card"
 import { Footer } from "@/components/footer"
 
 export default function Home() {
@@ -12,9 +12,9 @@ export default function Home() {
       <Navigation />
       <Hero />
       <Services />
-      <Impact />
-      <GetInvolved />
-      <Testimonials />
+      <ThreeFoldApproach />
+      <SanctuaryOfHope />
+      <ContactCard />
       <Footer />
     </main>
   )
