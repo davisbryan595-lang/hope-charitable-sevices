@@ -1,21 +1,85 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
+import { useEffect, useState, useCallback } from "react"
+import useEmblaCarousel from "embla-carousel-react"
+
+const CAROUSEL_IMAGES = [
+  "/diverse-community-helping-each-other-smiling.jpg",
+  "/diverse-community-helping-each-other-smiling.jpg",
+  "/diverse-community-helping-each-other-smiling.jpg",
+]
 
 export function Hero() {
-  return (
-    <section className="relative py-20 md:py-32 overflow-hidden">
-      {/* Background accent */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent" />
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    {
+      loop: true,
+      duration: 50,
+    },
+    []
+  )
+  const [selectedIndex, setSelectedIndex] = useState(0)
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Text Content */}
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return
+    setSelectedIndex(emblaApi.selectedIndex())
+  }, [emblaApi])
+
+  useEffect(() => {
+    if (!emblaApi) return
+
+    emblaApi.on("select", onSelect)
+    onSelect()
+
+    const autoplayInterval = setInterval(() => {
+      emblaApi.scrollNext()
+    }, 5000)
+
+    return () => {
+      clearInterval(autoplayInterval)
+      emblaApi.off("select", onSelect)
+    }
+  }, [emblaApi, onSelect])
+
+  return (
+    <section className="relative w-full overflow-hidden">
+      {/* Carousel Container */}
+      <div ref={emblaRef} className="relative h-96 md:h-screen">
+        <div className="flex h-full">
+          {CAROUSEL_IMAGES.map((image, index) => (
+            <div
+              key={index}
+              className={`relative flex-none w-full h-full transition-opacity duration-1000 ${
+                selectedIndex === index ? "opacity-100" : "opacity-0"
+              }`}
+            >
+              <Image
+                src={image}
+                alt={`Hope Charitable Services Slide ${index + 1}`}
+                fill
+                className="object-cover"
+                priority={index === 0}
+              />
+            </div>
+          ))}
+        </div>
+
+        {/* Purple Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-purple-900/70 via-purple-800/50 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-purple-900/40 via-transparent to-purple-900/30" />
+      </div>
+
+      {/* Content Overlay */}
+      <div className="absolute inset-0 flex items-center justify-center z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="space-y-8">
-            <div className="space-y-4">
-              <h1 className="text-5xl md:text-6xl font-bold text-foreground leading-tight text-balance">
-                Hope for <span className="text-primary">Everyone</span>
+            {/* Text Content */}
+            <div className="space-y-4 max-w-2xl">
+              <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight text-balance">
+                Hope for <span className="text-purple-300">Everyone</span>
               </h1>
-              <p className="text-xl text-muted-foreground leading-relaxed text-balance">
+              <p className="text-lg md:text-xl text-white/90 leading-relaxed text-balance">
                 At Hope Charitable Services, we believe in the power of compassion. We provide essential services and
                 support to those in need, creating pathways to dignity, independence, and renewed hope.
               </p>
@@ -23,40 +87,49 @@ export function Hero() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
+              <Button size="lg" className="bg-purple-600 text-white hover:bg-purple-700 w-fit">
                 Support Our Mission
               </Button>
               <Button
                 size="lg"
                 variant="outline"
-                className="border-border text-foreground hover:bg-secondary bg-transparent"
+                className="border-white text-white hover:bg-white/10 bg-transparent w-fit"
               >
                 Learn More
               </Button>
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-4 pt-8 border-t border-border">
+            <div className="grid grid-cols-3 gap-4 pt-8 border-t border-white/20 max-w-md">
               <div>
-                <p className="text-3xl font-bold text-primary">15K+</p>
-                <p className="text-sm text-muted-foreground">Lives Impacted</p>
+                <p className="text-2xl md:text-3xl font-bold text-purple-300">15K+</p>
+                <p className="text-sm text-white/70">Lives Impacted</p>
               </div>
               <div>
-                <p className="text-3xl font-bold text-primary">8+</p>
-                <p className="text-sm text-muted-foreground">Years Active</p>
+                <p className="text-2xl md:text-3xl font-bold text-purple-300">8+</p>
+                <p className="text-sm text-white/70">Years Active</p>
               </div>
               <div>
-                <p className="text-3xl font-bold text-primary">50+</p>
-                <p className="text-sm text-muted-foreground">Team Members</p>
+                <p className="text-2xl md:text-3xl font-bold text-purple-300">50+</p>
+                <p className="text-sm text-white/70">Team Members</p>
               </div>
             </div>
           </div>
-
-          {/* Image */}
-          <div className="relative h-96 md:h-[500px] rounded-2xl overflow-hidden">
-            <Image src="/diverse-community-helping-each-other-smiling.jpg" alt="Hope Charitable Services" fill className="object-cover" />
-          </div>
         </div>
+      </div>
+
+      {/* Carousel Indicators */}
+      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex gap-2 z-20">
+        {CAROUSEL_IMAGES.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => emblaApi?.scrollTo(index)}
+            className={`h-2 rounded-full transition-all duration-300 ${
+              selectedIndex === index ? "bg-white w-8" : "bg-white/40 w-2"
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
       </div>
     </section>
   )
