@@ -4,6 +4,12 @@ import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Contact Us - Hope Charitable Services",
+  description: "Get in touch with Hope Charitable Services. Send us a message or use our contact information to reach our team.",
+}
 
 export default function Contact() {
   return (
