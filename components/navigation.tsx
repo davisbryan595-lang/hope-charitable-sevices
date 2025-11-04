@@ -1,0 +1,64 @@
+"use client"
+
+import { useState } from "react"
+import Link from "next/link"
+import { Menu, X } from "lucide-react"
+import { Button } from "@/components/ui/button"
+
+export function Navigation() {
+  const [isOpen, setIsOpen] = useState(false)
+
+  return (
+    <nav className="bg-white border-b border-border sticky top-0 z-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          <Link href="/" className="flex items-center gap-2">
+            <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
+              <span className="text-white font-bold text-lg">H</span>
+            </div>
+            <span className="font-bold text-lg text-foreground hidden sm:inline">Hope</span>
+          </Link>
+
+          {/* Desktop Menu */}
+          <div className="hidden md:flex items-center gap-8">
+            <Link href="#services" className="text-sm text-muted-foreground hover:text-foreground transition">
+              Services
+            </Link>
+            <Link href="#impact" className="text-sm text-muted-foreground hover:text-foreground transition">
+              Our Impact
+            </Link>
+            <Link href="#testimonials" className="text-sm text-muted-foreground hover:text-foreground transition">
+              Stories
+            </Link>
+            <Button size="sm" className="bg-accent text-accent-foreground hover:bg-accent/90">
+              Donate Now
+            </Button>
+          </div>
+
+          {/* Mobile Menu */}
+          <button onClick={() => setIsOpen(!isOpen)} className="md:hidden" aria-label="Toggle menu">
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+
+        {/* Mobile Menu Items */}
+        {isOpen && (
+          <div className="md:hidden pb-4 space-y-2">
+            <Link href="#services" className="block text-sm text-muted-foreground hover:text-foreground py-2">
+              Services
+            </Link>
+            <Link href="#impact" className="block text-sm text-muted-foreground hover:text-foreground py-2">
+              Our Impact
+            </Link>
+            <Link href="#testimonials" className="block text-sm text-muted-foreground hover:text-foreground py-2">
+              Stories
+            </Link>
+            <Button size="sm" className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
+              Donate Now
+            </Button>
+          </div>
+        )}
+      </div>
+    </nav>
+  )
+}
