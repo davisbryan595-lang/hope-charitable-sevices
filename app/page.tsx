@@ -5,7 +5,6 @@ import { ThreeFoldApproach } from "@/components/three-fold-approach"
 import { SanctuaryOfHope } from "@/components/sanctuary-of-hope"
 import { ContactCard } from "@/components/contact-card"
 import { Footer } from "@/components/footer"
-import { Navigation } from "@/components/navigation"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
