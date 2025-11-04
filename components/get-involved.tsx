@@ -22,7 +22,7 @@ export function GetInvolved() {
   }
 
   return (
-    <section className="py-20 md:py-32 bg-secondary">
+    <section className="py-20 md:py-32 bg-secondary text-foreground">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Ways to Get Involved */}
         <div className="mb-16">
