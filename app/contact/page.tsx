@@ -28,6 +28,18 @@ export default function Contact() {
         </div>
       </section>
 
+      {/* Introductory Section */}
+      <section className="py-16 md:py-20 bg-background">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+          <p className="text-xl text-muted-foreground leading-relaxed">
+            We'd love to hear from you! Whether you have questions, want to volunteer, or simply want to connect, we're here for you. Fill out the form below or reach out directly, we'll get back to you as soon as possible. Together, we can bring hope to our community!
+          </p>
+          <p className="text-lg font-semibold text-primary">
+            God Bless!
+          </p>
+        </div>
+      </section>
+
       {/* Contact Form Section */}
       <section className="py-20 md:py-32 bg-background">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
