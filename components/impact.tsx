@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button"
 
 export function Impact() {
   return (
-    <section id="impact" className="py-20 md:py-32 bg-background">
+    <section id="impact" className="py-20 md:py-32 bg-white text-foreground">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Content */}
