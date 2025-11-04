@@ -2,6 +2,12 @@ import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { Heart, Gift, Users, TrendingUp } from "lucide-react"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Donate Today - Hope Charitable Services",
+  description: "Make a difference by donating to Hope Charitable Services. Your generosity directly impacts lives in our community.",
+}
 
 export default function Donate() {
   return (
