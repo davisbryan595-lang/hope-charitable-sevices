@@ -8,7 +8,7 @@ export function Impact() {
           {/* Content */}
           <div className="space-y-8">
             <div className="space-y-4">
-              <h2 className="text-4xl md:text-5xl font-bold text-foreground text-balance">
+              <h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">
                 Making Real Differences in Real Lives
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed text-balance">
@@ -27,9 +27,9 @@ export function Impact() {
               ].map((item, index) => (
                 <div key={index} className="flex gap-3 items-start">
                   <div className="w-6 h-6 rounded-full bg-primary flex items-center justify-center flex-shrink-0 mt-1">
-                    <span className="text-white text-sm font-bold">✓</span>
+                    <span className="text-primary-foreground text-sm font-bold">✓</span>
                   </div>
-                  <p className="text-muted-foreground">{item}</p>
+                  <p className="text-foreground">{item}</p>
                 </div>
               ))}
             </div>
@@ -47,7 +47,7 @@ export function Impact() {
               { number: "$2.1M", label: "Annual Investment" },
               { number: "24/7", label: "Support Available" },
             ].map((stat, index) => (
-              <div key={index} className="bg-card border border-border p-6 rounded-lg hover:bg-secondary transition">
+              <div key={index} className="bg-secondary border border-border p-6 rounded-lg hover:shadow-md transition">
                 <p className="text-3xl font-bold text-primary mb-1">{stat.number}</p>
                 <p className="text-muted-foreground">{stat.label}</p>
               </div>
