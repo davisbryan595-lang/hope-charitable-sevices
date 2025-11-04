@@ -21,18 +21,26 @@ export function Navigation() {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
-            <Link href="#services" className="text-sm text-muted-foreground hover:text-foreground transition">
-              Services
+            <Link href="/" className="text-sm text-muted-foreground hover:text-foreground transition">
+              Home
             </Link>
-            <Link href="#impact" className="text-sm text-muted-foreground hover:text-foreground transition">
-              Our Impact
+            <Link href="/about" className="text-sm text-muted-foreground hover:text-foreground transition">
+              About Us
             </Link>
-            <Link href="#testimonials" className="text-sm text-muted-foreground hover:text-foreground transition">
-              Stories
+            <Link href="/global-reach" className="text-sm text-muted-foreground hover:text-foreground transition">
+              Global Reach
             </Link>
-            <Button size="sm" className="bg-accent text-accent-foreground hover:bg-accent/90">
-              Donate Now
-            </Button>
+            <Link href="/programs" className="text-sm text-muted-foreground hover:text-foreground transition">
+              Programs
+            </Link>
+            <Link href="/contact" className="text-sm text-muted-foreground hover:text-foreground transition">
+              Contact Us
+            </Link>
+            <Link href="/donate" asChild>
+              <Button size="sm" className="bg-accent text-accent-foreground hover:bg-accent/90">
+                Donate Today
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile Menu */}
