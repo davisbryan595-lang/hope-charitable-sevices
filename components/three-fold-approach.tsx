@@ -1,7 +1,9 @@
+import Image from "next/image"
+
 export function ThreeFoldApproach() {
   return (
     <section className="w-full bg-gray-200 py-20 md:py-32">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
         {/* Main Heading */}
         <div className="text-center space-y-4">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground">
@@ -10,9 +12,8 @@ export function ThreeFoldApproach() {
           </h2>
         </div>
 
-        {/* Three Fold Sections */}
-        <div className="grid md:grid-cols-3 gap-12">
-          {/* Charitable Services */}
+        {/* Charitable Services - Image Right */}
+        <div className="grid md:grid-cols-2 gap-8 items-center">
           <div className="space-y-6">
             <h3 className="text-2xl font-bold text-foreground">CHARITABLE SERVICES</h3>
             <div className="space-y-4 text-foreground">
@@ -28,9 +29,27 @@ export function ThreeFoldApproach() {
               </ul>
             </div>
           </div>
+          <div className="relative h-80 rounded-lg overflow-hidden">
+            <Image
+              src="https://images.pexels.com/photos/6646951/pexels-photo-6646951.jpeg"
+              alt="Diverse volunteers posing in front of a van, ready to help the community"
+              fill
+              className="object-cover"
+            />
+          </div>
+        </div>
 
-          {/* Charitable Supply Chain */}
-          <div className="space-y-6">
+        {/* Charitable Supply Chain - Image Left */}
+        <div className="grid md:grid-cols-2 gap-8 items-center">
+          <div className="relative h-80 rounded-lg overflow-hidden order-2 md:order-1">
+            <Image
+              src="https://images.pexels.com/photos/5953713/pexels-photo-5953713.jpeg"
+              alt="Worker in a cold storage facility with shelves of perishable goods"
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div className="space-y-6 order-1 md:order-2">
             <h3 className="text-2xl font-bold text-foreground">CHARITABLE SUPPLY CHAIN</h3>
             <div className="space-y-4 text-foreground text-sm leading-relaxed">
               <p>
@@ -52,8 +71,10 @@ export function ThreeFoldApproach() {
               </div>
             </div>
           </div>
+        </div>
 
-          {/* Sanctuary of Hope */}
+        {/* Sanctuary of Hope - Image Right */}
+        <div className="grid md:grid-cols-2 gap-8 items-center">
           <div className="space-y-6">
             <h3 className="text-2xl font-bold text-foreground">SANCTUARY OF HOPE</h3>
             <div className="space-y-4 text-foreground">
@@ -66,6 +87,14 @@ export function ThreeFoldApproach() {
                 <li>Food Distribution & Hope Kitchen</li>
               </ul>
             </div>
+          </div>
+          <div className="relative h-80 rounded-lg overflow-hidden">
+            <Image
+              src="https://images.pexels.com/photos/5875272/pexels-photo-5875272.jpeg"
+              alt="Woman praying with another person's hand on her shoulder, expressing faith and spirituality"
+              fill
+              className="object-cover"
+            />
           </div>
         </div>
       </div>
