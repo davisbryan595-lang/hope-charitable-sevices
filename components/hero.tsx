@@ -23,7 +23,7 @@ export function Hero() {
 
   const onSelect = useCallback(() => {
     if (!emblaApi) return
-    setSelectedIndex(emblaApi.selectedIndex())
+    setSelectedIndex(emblaApi.selectedScrollSnap())
   }, [emblaApi])
 
   useEffect(() => {
