@@ -122,3 +122,32 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Hero overlay utility classes */
+.hero-overlay-right {
+  z-index: 5;
+  pointer-events: none;
+  /* Prefer theme primary color; fallback to the original purple */
+  background: linear-gradient(
+    to right,
+    color-mix(in srgb, var(--color-primary) 70%, transparent),
+    color-mix(in srgb, var(--color-primary) 45%, transparent) 60%,
+    transparent
+  );
+  /* Fallback for browsers without color-mix support */
+  background: linear-gradient(to right, rgba(88, 96, 221, 0.7), rgba(88, 96, 221, 0.5), transparent);
+}
+.hero-overlay-vertical {
+  z-index: 5;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    color-mix(in srgb, var(--color-primary) 45%, transparent),
+    transparent,
+    color-mix(in srgb, var(--color-primary) 30%, transparent)
+  );
+  background: linear-gradient(to bottom, rgba(88, 96, 221, 0.4), transparent, rgba(88, 96, 221, 0.3));
+}
+
+/* Logo blend utility */
+.logo-blend-darken { mix-blend-mode: darken; }

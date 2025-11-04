@@ -9,6 +9,8 @@ const CAROUSEL_IMAGES = [
   "/diverse-community-helping-each-other-smiling.jpg",
   "/diverse-community-helping-each-other-smiling.jpg",
   "/diverse-community-helping-each-other-smiling.jpg",
+  "https://images.pexels.com/photos/6646951/pexels-photo-6646951.jpeg",
+  "https://images.pexels.com/photos/5953713/pexels-photo-5953713.jpeg",
 ]
 
 export function Hero() {
@@ -70,18 +72,8 @@ export function Hero() {
         </div>
 
         {/* Tinted Gradient Overlay */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background: "linear-gradient(to right, rgba(88, 96, 221, 0.7), rgba(88, 96, 221, 0.5), transparent)"
-          }}
-        />
-        <div
-          className="absolute inset-0"
-          style={{
-            background: "linear-gradient(to bottom, rgba(88, 96, 221, 0.4), transparent, rgba(88, 96, 221, 0.3))"
-          }}
-        />
+        <div className="absolute inset-0 hero-overlay-right" />
+        <div className="absolute inset-0 hero-overlay-vertical" />
       </div>
 
       {/* Content Overlay */}
