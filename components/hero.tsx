@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import { useEffect, useState, useCallback } from "react"
 import useEmblaCarousel from "embla-carousel-react"
+import AutoPlay from "embla-carousel-autoplay"
 
 const CAROUSEL_IMAGES = [
   "/diverse-community-helping-each-other-smiling.jpg",
@@ -12,14 +13,13 @@ const CAROUSEL_IMAGES = [
 ]
 
 export function Hero() {
+  const [selectedIndex, setSelectedIndex] = useState(0)
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
       loop: true,
-      duration: 50,
     },
-    []
+    [AutoPlay({ delay: 5000 })]
   )
-  const [selectedIndex, setSelectedIndex] = useState(0)
 
   const onSelect = useCallback(() => {
     if (!emblaApi) return
@@ -28,19 +28,19 @@ export function Hero() {
 
   useEffect(() => {
     if (!emblaApi) return
-
-    emblaApi.on("select", onSelect)
     onSelect()
-
-    const autoplayInterval = setInterval(() => {
-      emblaApi.scrollNext()
-    }, 5000)
-
+    emblaApi.on("select", onSelect)
     return () => {
-      clearInterval(autoplayInterval)
       emblaApi.off("select", onSelect)
     }
   }, [emblaApi, onSelect])
+
+  const scrollTo = useCallback(
+    (index: number) => {
+      if (emblaApi) emblaApi.scrollTo(index)
+    },
+    [emblaApi]
+  )
 
   return (
     <section className="relative w-full overflow-hidden">
@@ -50,9 +50,7 @@ export function Hero() {
           {CAROUSEL_IMAGES.map((image, index) => (
             <div
               key={index}
-              className={`relative flex-none w-full h-full transition-opacity duration-1000 ${
-                selectedIndex === index ? "opacity-100" : "opacity-0"
-              }`}
+              className="relative flex-none w-full h-full"
             >
               <Image
                 src={image}
@@ -123,7 +121,7 @@ export function Hero() {
         {CAROUSEL_IMAGES.map((_, index) => (
           <button
             key={index}
-            onClick={() => emblaApi?.scrollTo(index)}
+            onClick={() => scrollTo(index)}
             className={`h-2 rounded-full transition-all duration-300 ${
               selectedIndex === index ? "bg-white w-8" : "bg-white/40 w-2"
             }`}
