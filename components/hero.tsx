@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import { useEffect, useState, useCallback } from "react"
 import useEmblaCarousel from "embla-carousel-react"
-import AutoPlay from "embla-carousel-autoplay"
 
 const CAROUSEL_IMAGES = [
   "/diverse-community-helping-each-other-smiling.jpg",
@@ -14,16 +13,22 @@ const CAROUSEL_IMAGES = [
 
 export function Hero() {
   const [selectedIndex, setSelectedIndex] = useState(0)
-  const [emblaRef, emblaApi] = useEmblaCarousel(
-    {
-      loop: true,
-    },
-    [AutoPlay({ delay: 5000 })]
-  )
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true })
 
   const onSelect = useCallback(() => {
     if (!emblaApi) return
     setSelectedIndex(emblaApi.selectedScrollSnap())
+  }, [emblaApi])
+
+  const scrollTo = useCallback(
+    (index: number) => {
+      if (emblaApi) emblaApi.scrollTo(index)
+    },
+    [emblaApi]
+  )
+
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext()
   }, [emblaApi])
 
   useEffect(() => {
@@ -35,12 +40,13 @@ export function Hero() {
     }
   }, [emblaApi, onSelect])
 
-  const scrollTo = useCallback(
-    (index: number) => {
-      if (emblaApi) emblaApi.scrollTo(index)
-    },
-    [emblaApi]
-  )
+  useEffect(() => {
+    const autoplayInterval = setInterval(() => {
+      scrollNext()
+    }, 5000)
+
+    return () => clearInterval(autoplayInterval)
+  }, [scrollNext])
 
   return (
     <section className="relative w-full overflow-hidden">
