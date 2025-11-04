@@ -22,7 +22,7 @@ export function GetInvolved() {
   }
 
   return (
-    <section className="py-20 md:py-32 bg-card">
+    <section className="py-20 md:py-32 bg-secondary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Ways to Get Involved */}
         <div className="mb-16">
@@ -53,7 +53,7 @@ export function GetInvolved() {
             ].map((item, index) => {
               const Icon = item.icon
               return (
-                <Card key={index} className="p-8 text-center border border-border hover:border-primary transition">
+                <Card key={index} className="p-8 text-center border border-border bg-background hover:border-primary transition">
                   <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mx-auto mb-4">
                     <Icon className="w-6 h-6 text-primary" />
                   </div>
