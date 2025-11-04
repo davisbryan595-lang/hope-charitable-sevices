@@ -1,5 +1,11 @@
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Global Reach - Hope Charitable Services",
+  description: "Discover how Hope Charitable Services extends its reach globally, serving 27 countries and communities worldwide.",
+}
 
 export default function GlobalReach() {
   return (
